@@ -18,7 +18,8 @@ export class CategoryService {
 
   constructor(private http: HttpClient, private sharedService: SharedService) {
     this.controller = 'categories';
-    this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;
+    this.urlBlogUocApi = 'http://localhost:3000/' + this.controller;console.log(this.controller,this.urlBlogUocApi);
+    
   }
 
   getCategoriesByUserId(userId: string): Observable<CategoryDTO[]> {

@@ -25,7 +25,6 @@ describe("FormatDatePipe", () => {
     const expected = '31 / 01 / 2024';
     
     const result = pipe.transform(date, 2);
-    console.log("test pipe", result);
 
     expect(result).toBe(expected);
   });
