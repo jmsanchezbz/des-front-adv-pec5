@@ -2,18 +2,18 @@
 
 <!-- NO AUTH REQUIRED -->
 <div *ngIf="showNoAuthSection">
-  <button (click)="dashboard()">Dashboard</button>
-  <button (click)="home()">Home</button>
-  <button (click)="login()">Login</button>
-  <button (click)="register()">Register</button>
+  <button id="btnDashboard" (click)="dashboard()">Dashboard</button>
+  <button id="btnHome" (click)="home()">Home</button>
+  <button id="btnLogin" (click)="login()">Login</button>
+  <button id="btnRegister" (click)="register()">Register</button>
 </div>
 
 <!-- AUTH REQUIRED -->
 <div *ngIf="showAuthSection">
-  <button (click)="dashboard()">Dashboard</button>
-  <button (click)="home()">Home</button>
-  <button (click)="adminPosts()">Admin posts</button>
-  <button (click)="adminCategories()">Admin categories</button>
-  <button (click)="profile()">Profile</button>
-  <button (click)="logout()">Logout</button>
+  <button id="btnDashboard" (click)="dashboard()">Dashboard</button>
+  <button id="btnHome" (click)="home()">Home</button>
+  <button id="btnPosts" (click)="adminPosts()">Admin posts</button>
+  <button id="btnCategories" (click)="adminCategories()">Admin categories</button>
+  <button id="btnProfile" (click)="profile()">Profile</button>
+  <button id="btnLogout" (click)="logout()">Logout</button>
 </div>

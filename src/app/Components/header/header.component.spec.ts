@@ -10,8 +10,8 @@ describe("HeaderComponent", () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([
           {
@@ -98,5 +98,61 @@ describe("HeaderComponent", () => {
     const spy = spyOn(router, "navigateByUrl");
     component.navigationTo(route);
     expect(spy).toHaveBeenCalledWith(route);
+  });
+
+  it("View header checked unauthenticated  menu items", () => {
+    const compiled = fixture.nativeElement;
+
+    const dashboardBtn = compiled.querySelector("button#btnDashboard");
+    const homeBtn = compiled.querySelector("button#btnHome");
+    const loginBtn = compiled.querySelector("button#btnLogin");
+    const registerBtn = compiled.querySelector("button#btnRegister");
+
+    expect(dashboardBtn).toBeTruthy();
+    expect(dashboardBtn.textContent).toContain('Dashboard');
+
+    expect(homeBtn).toBeTruthy();
+    expect(homeBtn.textContent).toContain('Home');
+
+    expect(loginBtn).toBeTruthy();
+    expect(loginBtn.textContent).toContain('Login');
+
+    expect(registerBtn).toBeTruthy();
+    expect(registerBtn.textContent).toContain('Register');
+  });
+
+  it("View header checked authenticated  menu items", () => {
+    component.showAuthSection = true;
+    component.showNoAuthSection = false;
+
+    //renderizamos la pantalla con los cambios de las variables
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement;
+
+    const dashboardBtn = compiled.querySelector("button#btnDashboard");
+    const homeBtn = compiled.querySelector("button#btnHome");
+    const postsBtn = compiled.querySelector("button#btnPosts");
+    const categoriesBtn = compiled.querySelector("button#btnCategories");
+    const profileBtn = compiled.querySelector("button#btnProfile");
+    const logoutBtn = compiled.querySelector("button#btnLogout");
+
+    expect(dashboardBtn).toBeTruthy();
+    expect(dashboardBtn.textContent).toContain('Dashboard');
+
+    expect(homeBtn).toBeTruthy();
+    expect(homeBtn.textContent).toContain('Home');
+
+    expect(postsBtn).toBeTruthy();
+    expect(postsBtn.textContent).toContain('Admin posts');
+
+    expect(categoriesBtn).toBeTruthy();
+    expect(categoriesBtn.textContent).toContain('Admin categories');
+
+    expect(profileBtn).toBeTruthy();
+    expect(profileBtn.textContent).toContain('Profile');
+
+    expect(logoutBtn).toBeTruthy();
+    expect(logoutBtn.textContent).toContain('Logout');
   });
 });

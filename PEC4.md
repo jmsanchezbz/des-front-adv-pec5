@@ -16,4 +16,7 @@ Añadir un router para comprobar que se utilizaba la ruta correcta.
 ok
 
 ## Ejercicio 5 test vista
+Este test se realiza en el header.component.spec
+Para identificar los botones de manera unívoca se añade un identificador al cada botón.
+ok
 
