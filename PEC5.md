@@ -19,5 +19,7 @@
   - El diagnóstico indica mejoras en la compresión de texto, imágenes demasiado grandes, reducción de javascript sin uso, minimizar javascript y se podría mejorar el SEO de la página. Se puede ver parte del resultado en la imagen siguiente:
 
 ![Lighthouse report](./src/assets/images/lighthouse-pwa-app.png)
+- El serviceworker se ha configurado con una preferencia sobre contenido actualizado antes de utilizar la cache. Se almacenan un máximo de 10 elementos que es el número de elementos de la respuesta de la lista de imagenes. Y se ha puesto una duración de 1h de tiempo para refrescar y 1 segundo para la respuesta del servidor remoto. Es una configuración básica siguiendo el ejemplo de la práctica.
+
 
 ## Ejercicio 2
