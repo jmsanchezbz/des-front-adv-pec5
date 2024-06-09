@@ -1,61 +1,26 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CategoriesListComponent } from './Components/categories/categories-list/categories-list.component';
-import { CategoryFormComponent } from './Components/categories/category-form/category-form.component';
-import { DashboardComponent } from './Components/dashboard/dashboard.component';
-import { HomeComponent } from './Components/home/home.component';
-import { LoginComponent } from './Components/login/login.component';
-import { PostFormComponent } from './Components/posts/post-form/post-form.component';
-import { PostsListComponent } from './Components/posts/posts-list/posts-list.component';
-import { ProfileComponent } from './Components/profile/profile.component';
-import { RegisterComponent } from './Components/register/register.component';
-import { AuthGuard } from './Guards/auth.guard';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { ItemListComponent } from "./components/item/item-list/item-list.component";
+import { ItemDetailComponent } from "./components/item/item-detail/item-detail.component";
+import { itemLoadResolveFn } from "./services/item-load-resolver";
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
+    path: "",
+    component: ItemListComponent,
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: "items",
+    component: ItemListComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent,
+    path: "items/:id",
+    component: ItemDetailComponent,
+    resolve: { item: itemLoadResolveFn },
   },
   {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-  },
-  {
-    path: 'posts',
-    component: PostsListComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'user/post/:id',
-    component: PostFormComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'categories',
-    component: CategoriesListComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'user/category/:id',
-    component: CategoryFormComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AuthGuard],
+    path: "**",
+    component: ItemListComponent,
   },
 ];
 

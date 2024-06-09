@@ -1,6 +1,6 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { HttpErrorResponse } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { throwError } from "rxjs";
 
 export interface ResponseError {
   statusCode: number;
@@ -13,7 +13,7 @@ export interface ResponseError {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class SharedService {
   constructor() {}
@@ -26,40 +26,46 @@ export class SharedService {
     const toastMsg = document.getElementById(element);
     if (toastMsg) {
       if (validRequest) {
-        toastMsg.className = 'show requestOk';
-        toastMsg.textContent = 'Form submitted successfully.';
+        toastMsg.className = "show requestOk";
+        toastMsg.textContent = "Form submitted successfully.";
         await this.wait(2500);
-        toastMsg.className = toastMsg.className.replace('show', '');
+        toastMsg.className = toastMsg.className.replace("show", "");
       } else {
-        toastMsg.className = 'show requestKo';
+        toastMsg.className = "show requestKo";
         if (error?.messageDetail) {
           toastMsg.textContent =
-            'Error on form submitted, show logs. Message: ' +
+            "Error on form submitted, show logs. Message: " +
             error?.message +
-            '. Message detail: ' +
+            ". Message detail: " +
             error?.messageDetail +
-            '. Status code: ' +
+            ". Status code: " +
             error?.statusCode;
         } else {
           toastMsg.textContent =
-            'Error on form submitted, show logs. Message: ' +
+            "Error on form submitted, show logs. Message: " +
             error?.message +
-            '. Status code: ' +
+            ". Status code: " +
             error?.statusCode;
         }
 
         await this.wait(2500);
-        toastMsg.className = toastMsg.className.replace('show', '');
+        toastMsg.className = toastMsg.className.replace("show", "");
       }
     }
   }
 
   errorLog(error: ResponseError): void {
-    console.error('path:', error.path);
-    console.error('timestamp:', error.timestamp);
-    console.error('message:', error.message);
-    console.error('messageDetail:', error.messageDetail);
-    console.error('statusCode:', error.statusCode);
+    console.error("path:", error?.path ? error.path : "unknown");
+    console.error("timestamp:", error?.timestamp ? error.timestamp : "unknown");
+    console.error("message:", error?.message ? error.message : "unknown");
+    console.error(
+      "messageDetail:",
+      error?.messageDetail ? error.messageDetail : "unknown"
+    );
+    console.error(
+      "statusCode:",
+      error?.statusCode ? error.statusCode : "unknown"
+    );
   }
 
   async wait(ms: number) {
