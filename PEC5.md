@@ -15,4 +15,9 @@
 - Se modifica archivo manifest.webmanifest para eliminar algunos errores y advertencias.
   - Eliminamos purpose de los iconos
   - Añadimos sección screenshots con imágenes para escritorio y móvil.
+- Se realiza informe Lighthouse
+  - El diagnóstico indica mejoras en la compresión de texto, imágenes demasiado grandes, reducción de javascript sin uso, minimizar javascript y se podría mejorar el SEO de la página. Se puede ver parte del resultado en la imagen siguiente:
+
+![Lighthouse report](./src/assets/images/lighthouse-pwa-app.png)
+
 ## Ejercicio 2
