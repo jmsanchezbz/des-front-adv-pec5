@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "blog-uoc-project-front:build:production"
+              "buildTarget": "blog-uoc-project-front:build:production"
             },
             "development": {
-              "browserTarget": "blog-uoc-project-front:build:development"
+              "buildTarget": "blog-uoc-project-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blog-uoc-project-front:build"
+            "buildTarget": "blog-uoc-project-front:build"
           }
         },
         "test": {

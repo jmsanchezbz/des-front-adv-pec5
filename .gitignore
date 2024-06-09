@@ -2,6 +2,7 @@
 
 #angular
 .angular
+.angular/
 
 # compiled output
 /dist
