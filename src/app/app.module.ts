@@ -19,7 +19,8 @@ import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { SpinnerComponent } from "./shared/spinner/spinner.component";
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -44,11 +45,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatTableModule,
     MatIconModule,
     MatButtonToggleModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    MatExpansionModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: "registerWhenStable:30000",
     }),
   ],
   providers: [
