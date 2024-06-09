@@ -5,24 +5,18 @@
         </button>
     </div>
     <div>
+        <h1>Unsplash <ng-container *ngIf="item.username">- <a
+                    [href]="item.user_link">{{item.username}}</a></ng-container></h1>
+        <img class="responsive" [src]="item.url" [alt]="item.alt_description" height="300px">
         <mat-accordion>
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel (opened)="detailsVisible = true" (closed)="detailsVisible = false">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <h1>Unsplash <ng-container *ngIf="item.username">- <a
-                                    [href]="item.user_link">{{item.username}}</a></ng-container></h1>
+                        <h3>More info</h3>
                     </mat-panel-title>
                     <mat-panel-description>
                         <p>{{item.alt_description}}</p>
                     </mat-panel-description>
-                </mat-expansion-panel-header>
-                <img class="responsive" [src]="item.url" [alt]="item.alt_description" height="300px">
-            </mat-expansion-panel>
-            <mat-expansion-panel (opened)="detailsVisible = true" (closed)="detailsVisible = false">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        More details
-                    </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="info">
                     <h3> {{item.alt_description}} </h3>
