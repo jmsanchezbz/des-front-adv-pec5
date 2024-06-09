@@ -12,4 +12,7 @@
 - Actualización a la versión 17 de Angular material desde la versión 15
   - ng update @angular/material@16 @angular/cdk@16
   - ng update @angular/material@17 @angular/cdk@17
+- Se modifica archivo manifest.webmanifest para eliminar algunos errores y advertencias.
+  - Eliminamos purpose de los iconos
+  - Añadimos sección screenshots con imágenes para escritorio y móvil.
 ## Ejercicio 2
