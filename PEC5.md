@@ -23,3 +23,6 @@
 
 
 ## Ejercicio 2
+
+  [Aplicación PWA PEC5 desplegada en Netlify](https://des-front-adv-pec5.netlify.app/)
+  - https://des-front-adv-pec5.netlify.app/
